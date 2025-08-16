@@ -1,0 +1,71 @@
+:root {
+  --bg-color: #1e1e1e;
+  --text-color: #f0f0f0;
+  --accent-color: #4caf50;
+  --accent-hover: #45a049;
+  --card-bg: #2c2c2c;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 400px;
+}
+
+.stats {
+  margin-bottom: 1rem;
+}
+
+.main-btn {
+  background: var(--accent-color);
+  color: var(--text-color);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 1.5rem;
+}
+
+.main-btn:hover {
+  background: var(--accent-hover);
+}
+
+.upgrades {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.upgrade-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--accent-color);
+  color: var(--text-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.upgrade-btn:hover {
+  background: var(--accent-hover);
+}
+
