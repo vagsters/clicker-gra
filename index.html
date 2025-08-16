@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header class="header">
+            <h1>🎮 Clicker Game</h1>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-label">Coins:</span>
+                    <span id="coins" class="stat-value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Per Second:</span>
+                    <span id="coinsPerSecond" class="stat-value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Per Click:</span>
+                    <span id="coinsPerClick" class="stat-value">1</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="game-area">
+                <div class="click-section">
+                    <button id="clickButton" class="click-button">
+                        <span class="click-icon">💰</span>
+                        <span class="click-text">Click for Coins!</span>
+                    </button>
+                    <div class="click-effects" id="clickEffects"></div>
+                </div>
+            </div>
+
+            <aside class="sidebar">
+                <div class="upgrades-section">
+                    <h2>🔧 Upgrades</h2>
+                    <div id="upgrades" class="upgrades-list"></div>
+                </div>
+
+                <div class="auto-clickers-section">
+                    <h2>🤖 Auto Clickers</h2>
+                    <div id="autoClickers" class="auto-clickers-list"></div>
+                </div>
+
+                <div class="achievements-section">
+                    <h2>🏆 Achievements</h2>
+                    <div id="achievements" class="achievements-list"></div>
+                </div>
+            </aside>
+        </main>
+
+        <footer class="footer">
+            <button id="saveGame" class="action-button">💾 Save Game</button>
+            <button id="resetGame" class="action-button danger">🗑️ Reset Game</button>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
