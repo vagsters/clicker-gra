@@ -1,0 +1,427 @@
+/* Modern CSS Variables for theming */
+:root {
+    --primary-color: #3b82f6;
+    --primary-hover: #2563eb;
+    --secondary-color: #10b981;
+    --secondary-hover: #059669;
+    --danger-color: #ef4444;
+    --danger-hover: #dc2626;
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --border-color: #475569;
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header styles */
+.header {
+    background: var(--bg-secondary);
+    padding: 1rem 2rem;
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stats {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.stat-value {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+/* Main layout */
+.main {
+    display: flex;
+    flex: 1;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.game-area {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar {
+    flex: 1;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Click button */
+.click-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.click-button {
+    width: 200px;
+    height: 200px;
+    border: none;
+    border-radius: 50%;
+    background: var(--gradient-secondary);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.click-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4);
+}
+
+.click-button:active {
+    transform: scale(0.95);
+}
+
+.click-icon {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.click-text {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: white;
+}
+
+.click-effects {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    width: 300px;
+    height: 300px;
+}
+
+/* Upgrade sections */
+.upgrades-section,
+.auto-clickers-section,
+.achievements-section {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.upgrades-section h2,
+.auto-clickers-section h2,
+.achievements-section h2 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+
+.upgrades-list,
+.auto-clickers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.upgrade-item,
+.auto-clicker-item {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.upgrade-item:hover,
+.auto-clicker-item:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.upgrade-item.disabled,
+.auto-clicker-item.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.upgrade-item.disabled:hover,
+.auto-clicker-item.disabled:hover {
+    background: var(--bg-tertiary);
+    transform: none;
+    box-shadow: none;
+}
+
+.upgrade-info,
+.auto-clicker-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.upgrade-name,
+.auto-clicker-name {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.upgrade-description,
+.auto-clicker-description {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.upgrade-cost,
+.auto-clicker-cost {
+    font-weight: bold;
+    color: var(--secondary-color);
+    white-space: nowrap;
+    margin-left: 1rem;
+}
+
+.auto-clicker-count {
+    background: var(--primary-color);
+    color: white;
+    border-radius: 12px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+/* Achievements */
+.achievements-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 0.75rem;
+}
+
+.achievement-item {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.75rem;
+    text-align: center;
+    transition: all 0.2s ease;
+    cursor: help;
+}
+
+.achievement-item.unlocked {
+    background: var(--secondary-color);
+    border-color: var(--secondary-hover);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.achievement-icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.achievement-name {
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* Footer */
+.footer {
+    background: var(--bg-secondary);
+    border-top: 2px solid var(--border-color);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.action-button {
+    background: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.action-button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.action-button.danger {
+    background: var(--danger-color);
+}
+
+.action-button.danger:hover {
+    background: var(--danger-hover);
+}
+
+/* Floating numbers animation */
+.floating-number {
+    position: absolute;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    pointer-events: none;
+    animation: floatUp 1.5s ease-out forwards;
+    z-index: 100;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(1.2);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .main {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        max-width: none;
+    }
+    
+    .stats {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        text-align: center;
+        flex-direction: column;
+    }
+    
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .main {
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .click-button {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .click-icon {
+        font-size: 3rem;
+    }
+    
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Loading state */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--secondary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Smooth transitions for all interactive elements */
+button, .upgrade-item, .auto-clicker-item, .achievement-item {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Pulse animation for important elements */
+.pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .5;
+    }
+}
